@@ -112,8 +112,6 @@ TestResults/
 # Publish output
 publish/
 
-# EF Core tools
-Migrations/
 
 # Resharper
 _ReSharper*/
