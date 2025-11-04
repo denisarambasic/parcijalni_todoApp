@@ -1,0 +1,30 @@
+﻿@model TodoList
+@{
+    ViewData["Title"] = "TodoList-Create";
+}
+
+<h2>@Model.Title</h2>
+
+<a asp-controller="TodoTasks" asp-action="Create" asp-route-listId="@Model.Id" class="btn btn-primary">Novi zadatak</a>
+
+<table class="table mt-3">
+    <tr>
+        <th>Opis</th>
+        <th>Status</th>
+        <th>Akcije</th>
+    </tr>
+
+    @foreach (var task in Model.Tasks)
+    {
+        <tr>
+            <td>@task.Description</td>
+            <td>@(task.Status ? "Završen" : "U tijeku")</td>
+            <td>
+                <form asp-controller="TodoTasks" asp-action="MarkDone" method="post">
+                    <input type="hidden" name="id" value="@task.Id" />
+                    <button type="submit" class="btn btn-success btn-sm">Označi kao gotovo</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,14 @@
+﻿@model TodoTask
+
+<h2>Novi zadatak</h2>
+
+<form asp-action="Create" method="post">
+    <input type="hidden" name="listId" value="@ViewBag.ListId" />
+
+    <div class="form-group">
+        <label>Opis</label>
+        <input asp-for="Description" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-success">Spremi</button>
+</form>

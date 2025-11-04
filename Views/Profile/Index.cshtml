@@ -1,0 +1,12 @@
+﻿@model ApplicationUser
+
+@{
+    ViewData["Title"] = "Profile Page";
+}
+
+<div class="text-center">
+    <h2>Profil korisnika</h2>
+    <p>Korisničko ime: @Model.UserName</p>
+
+    <a class="btn btn-primary" href="/TodoLists">Moje TO-DO liste</a>
+</div>

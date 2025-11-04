@@ -1,0 +1,28 @@
+﻿@model IEnumerable<TodoList>
+@{
+    ViewData["Title"] = "TodoList";
+}
+
+<h2>Moje To-Do liste</h2>
+
+<a asp-action="Create" class="btn btn-primary">Nova lista</a>
+
+<table class="table">
+    <tr>
+        <th>Naziv</th>
+        <th></th>
+    </tr>
+    @foreach (var list in Model)
+    {
+        <tr>
+            <td>@list.Title</td>
+            <td>
+                <a asp-action="Details" asp-route-id="@list.Id">Detalji</a> |
+                <form asp-action="Delete" asp-route-id="@list.Id" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-danger btn-sm">Obriši</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
+
